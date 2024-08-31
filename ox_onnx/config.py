@@ -1,4 +1,7 @@
 
+# model root folder
+OX_MODELS = ".ox_models"
+ONNX_MODELS = "onnx_models"
 
 
 

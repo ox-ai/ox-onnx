@@ -8,11 +8,10 @@ from tqdm import tqdm
 
 
 from ox_onnx.raise_errors import ModelInstallationError
+from ox_onnx.utils import check_model_existence
+from ox_onnx.config import OX_MODELS,ONNX_MODELS 
 
-# Define the path to save the model and tokenizer
 
-OX_MODELS = ".ox_models"
-ONNX_MODELS = "onnx_models"
 # MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
 # MODEL_HEAD = "all-MiniLM-L6-v2.onnx.ox"
 # MODEL_PATH = Path.home() / OX_MODELS / ONNX_MODELS / MODEL_HEAD
@@ -28,14 +27,13 @@ MODEL_FILES = [
     ]
 
 class Extractor:
-    OX_MODELS = ".ox_models"
-    ONNX_MODELS = "onnx_models"
+
 
     def __init__(self, model_id: str,model_files:list[str]=None) -> None:
         self.MODEL_ID = model_id
         self.MODEL_HEAD = self.MODEL_ID.split("/")[1] + ".onnx.ox"
         self.MODEL_PATH = (
-            Path.home() / Extractor.OX_MODELS / Extractor.ONNX_MODELS / self.MODEL_HEAD
+            Path.home() / OX_MODELS / ONNX_MODELS / self.MODEL_HEAD
         )
         self.MODEL_PATH_absolute = self.MODEL_PATH / "model.onnx"
         self.MODEL_FILES = model_files or MODEL_FILES
@@ -173,22 +171,5 @@ def gen_model_hash(model_path_absolute: str, read_byte: int = 4096) -> str:
 
     return model_hash.hexdigest()
 
-
-def check_model_existence(model_path: str,model_files:list[str]=MODEL_FILES) -> bool:
-    """
-    Checks if the model and its associated files exist in the specified directory.
-
-    Args:
-        model_path (str, optional): The path to the directory containing the model files.
-        Defaults to MODEL_PATH.
-
-    Returns:
-        bool: True if all required files exist in the specified directory; False otherwise.
-    """
-    for model_file in model_files:
-        if not (model_path / model_file).exists():
-            return False
-    #return all((model_path / fname).exists() for fname in model_files)
-    return True
 
     
