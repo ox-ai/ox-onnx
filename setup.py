@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ox-onnx",
-    version="0.0.01",
+    version="0.0.1",
     description="ox-onnx a clean interface lib to work with onnx models",
     author="Lokeshwaran M",
     author_email="lokeshwaran.m23072003@gmail.com",
