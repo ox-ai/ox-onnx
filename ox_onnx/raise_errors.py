@@ -17,7 +17,7 @@ class ModelNotInterfacedError(Exception):
 
     def __init__(
         self,
-        message="Model id given is not interfaced use only interfased model ids",
+        message="Model id given is not interfaced use only interfaced model ids",
     ):
         self.message = message
         super().__init__(self.message)

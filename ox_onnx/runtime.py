@@ -21,7 +21,7 @@ class OnnxModel:
         Returns:
             loads and returns the model with its methods 
         Raises:
-            ModelNotInterfasedError: If the given `model_ID` is not valid or has not been interfaced.
+            ModelNotInterfacedError: If the given `model_ID` is not valid or has not been interfaced.
         """
         if model_ID not in MODEL_IDS:
             raise ModelNotInterfacedError(

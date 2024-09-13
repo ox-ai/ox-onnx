@@ -1,7 +1,7 @@
 """
 onnx model definition for  "sentence-transformers/all-MiniLM-L6-v2"
 """
-# onnx model file from hugging fase
+# onnx model file from hugging face
 # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/main/onnx/model.onnx
 # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/main/train_script.py
@@ -56,7 +56,7 @@ class InterfaceModel:
             # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2#:~:text=By%20default%2C%20input%20text%20longer%20than%20256%20word%20pieces%20is%20truncated.
             self.max_context_length = 256
 
-            if check_model_existence(
+            if not check_model_existence(
                 model_path=MODEL_PATH, model_files=MODEL_FILES
             ):
                 # from ox_onnx.extract import Extractor
