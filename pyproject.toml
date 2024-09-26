@@ -1,0 +1,51 @@
+[project]
+name = "ox-onnx"
+version = "0.0.1"
+# dynamic = ["version"]
+
+authors = [
+  { name = "Lokeshwaran M", email = "Lokeshwaran.m23072003@gmail.com" }
+]
+description = "An OX-ONNX runtime support"
+keywords = ["ox-onnx","oxdb-lite","oxdoc-lite","ox-dblite","ox-doclite","ox-ai"]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+"numpy",
+"onnx>=1.16.2",
+"onnxruntime>=1.19.0",
+"optimum>=1.21.4",
+"setuptools",
+"tokenizers>=0.19.0",
+"tqdm>=4.66.5",
+"transformers>=4.43.4",
+]
+
+# [project.scripts]
+# "oxdblite.shell" = "oxdb_lite.shell.cli:main"
+# "oxdblite.server" = "oxdb_lite.server.log:main"
+
+[project.urls]
+"Homepage" = "https://github.com/ox-ai/ox-onnx"
+"Bug Tracker" = "https://github.com/ox-ai/ox-onnx/issues"
+
+[build-system]
+requires = ["setuptools>=61.0","wheel", "setuptools-git-versioning", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+#[tool.setuptools_scm]
+#local_scheme = "no-local-version"
+
+#[tool.setuptools]
+#packages = ["ox-db"]
+#include_package_data = false
+#packages.find.include = []
+
+#[tool.setuptools.package-data]
+#"ox-db" = ["requirements.txt"]
